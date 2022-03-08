@@ -8,15 +8,15 @@ export const selectCollections = createSelector(
   (shop) => shop.collections
 );
 
+// object.keys gives you all the keys of an object and gives it to us in an array format
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
     collections => Object.keys(collections).map(key => collections[key])
 )
 
-//memoizing the return of the function
+
 export const selectCollection = memoize((collectionUrlParam) =>
   createSelector([selectCollections], 
     collections => collections[collectionUrlParam])
   );
 
-  // Data normalization in converting an arra to an object
