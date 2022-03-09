@@ -5,10 +5,10 @@ import { createStructuredSelector } from "reselect";
 
 import "./App.css";
 
-import HomePage from "./components/page/homepage/homepage.component";
-import ShopPage from "./components/page/shop/shop.component";
-import SignInAndSignUpPage from "./components/page/sign-in-and-sign-up/sign-in-and-sign-up.component";
-import CheckoutPage from "./components/page/checkout/checkout.component";
+import HomePage from "./page/homepage/homepage.component";
+import ShopPage from "./page/shop/shop.component";
+import SignInAndSignUpPage from "./page/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import CheckoutPage from "./page/checkout/checkout.component";
 
 import Header from "./components/header/header.component";
 
