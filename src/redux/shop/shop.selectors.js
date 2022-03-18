@@ -8,15 +8,24 @@ export const selectCollections = createSelector(
   (shop) => shop.collections
 );
 
-// object.keys gives you all the keys of an object and gives it to us in an array format
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 )
 
-
+//memoizing the return of the function   // Data normalization is converting an array in to an object
 export const selectCollection = memoize((collectionUrlParam) =>
   createSelector([selectCollections], 
-    collections => collections[collectionUrlParam])
+    collections => collections ? collections[collectionUrlParam] : null)
   );
 
+export const selectIsCollectionFetching =  createSelector(
+  [selectShop],
+  shop => shop.isFetching
+)
+
+// with double band if collections is loaded, will return true
+export const selectIsCollectionsLoaded = createSelector(
+  [selectShop],
+  shop=> !!shop.collections
+)
