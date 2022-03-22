@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import styled from "styled-components";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector"; 
+import { selectCollectionsForPreview } from "./redux/shop/shop.selectors";
 
 //without exact the router will add pages end to end (if there is no switch) if a sub regex matches
 //with just one object header is always present whatever the Routes is
@@ -73,7 +75,7 @@ class App extends React.Component {
 
 //reading user state in App to make use a already signed in user doesnt access to sign in page again
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
 //Dispatch passes the action object it receives to every reducer

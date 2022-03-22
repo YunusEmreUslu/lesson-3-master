@@ -1,4 +1,4 @@
-  import React from "react";
+    import React from "react";
 
     import { SpinnerContainer, SpinnerOverlay } from "./with-spinner.styles";
 
@@ -18,3 +18,6 @@
 
         return Spinner;
     }
+
+
+    // wrapping shop component bc it has the loading state and is responsible of the reducers related
